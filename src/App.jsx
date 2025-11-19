@@ -1,6 +1,6 @@
-import React from 'react';
+
 import { useTheme } from './hooks/useTheme';
-import { useTodos } from './hooks/useTodos';
+import { useTodos } from './hooks/useTodo';
 import Header from './components/Layout/Header';
 import StatsCards from './components/Stats/StatsCards';
 import CategorySelector from './components/Categories/CategorySelector';
