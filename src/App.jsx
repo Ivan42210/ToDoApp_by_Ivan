@@ -1,4 +1,3 @@
-
 import { useTheme } from './hooks/useTheme';
 import { useTodos } from './hooks/useTodo';
 import Header from './components/Layout/Header';
@@ -28,11 +27,11 @@ export default function App() {
   } = useTodos();
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${darkMode
+    <div className={`min-h-screen transition-colors duration-300 flex items-center justify-center ${darkMode
         ? 'bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900'
         : 'bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50'
       }`}>
-      <div className="container mx-auto px-4 py-8 max-w-4xl">
+      <div className="container mx-auto px-4 py-8 max-w-2xl w-full">
 
         {/* Header avec recherche */}
         <Header
