@@ -4,7 +4,7 @@ import Header from './components/Layout/Header';
 import StatsCards from './components/Stats/StatsCards';
 import CategorySelector from './components/Categories/CategorySelector';
 import TodoInput from './components/Todo/TodoInput';
-import TodoFilters from './components/Todo/TodoFilters';
+//import TodoFilters from './components/Todo/TodoFilters';
 import TodoList from './components/Todo/TodoList';
 import Button from './components/UI/Button';
 
@@ -17,8 +17,8 @@ export default function App() {
     deleteTodo,
     updateTodo,
     clearCompleted,
-    filter,
-    setFilter,
+    //filter,
+    //setFilter,
     searchTerm,
     setSearchTerm,
     selectedCategory,
@@ -54,12 +54,12 @@ export default function App() {
           darkMode={darkMode}
         />
 
-        {/* Filtres */}
+        {/* Filtres 
         <TodoFilters
           currentFilter={filter}
           onFilterChange={setFilter}
           darkMode={darkMode}
-        />
+        />*/}
 
         {/* Liste des tâches */}
         <TodoList

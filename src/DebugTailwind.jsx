@@ -25,3 +25,24 @@ export default function DebugTailwind() {
     </div>
   );
 }
+
+/*
+/* TodoFilters.jsx input principal à copier
+ <div className="flex gap-3 mb-4">
+                <Input
+                    value={text}
+                    onChange={(e) => setText(e.target.value)}
+                    onKeyPress={handleKeyPress}
+                    placeholder="Ajouter une nouvelle tâche..."
+                    darkMode={darkMode}
+                    className="flex-1"
+                />
+                <Button onClick={handleSubmit} size="lg">
+                    <Plus size={20} />
+                    Ajouter
+                </Button>
+            </div>
+
+            TodoFilters.jsx options avancées à copier
+            
+*/ 
