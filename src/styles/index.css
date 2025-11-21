@@ -1,8 +1,7 @@
 @import "tailwindcss";
 
 * {
-    margin: 0;
-    padding: 0;
+
     box-sizing: border-box;
 }
 
@@ -12,15 +11,16 @@ body {
         sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    padding: 0;
 }
 
-/* Animations personnalisées */
+/* Le reste de votre CSS personnalisé reste identique */
 @keyframes fadeIn {
     from {
         opacity: 0;
         transform: translateY(10px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
@@ -31,7 +31,6 @@ body {
     animation: fadeIn 0.3s ease-out;
 }
 
-/* Scrollbar personnalisée */
 ::-webkit-scrollbar {
     width: 8px;
 }
