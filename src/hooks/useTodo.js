@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { useLocalStorage } from './useLocalStorage';
 import { STORAGE_KEYS, FILTERS } from '../utils/constants';
@@ -51,12 +50,9 @@ export function useTodos() {
     setTodos(todos.filter(todo => !todo.completed));
   };
 
-  // Réorganiser les tâches (drag & drop)
-  const reorderTodos = (startIndex, endIndex) => {
-    const result = Array.from(todos);
-    const [removed] = result.splice(startIndex, 1);
-    result.splice(endIndex, 0, removed);
-    setTodos(result);
+  // Réorganiser les tâches (Drag & Drop)
+  const reorderTodos = (newTodos) => {
+    setTodos(newTodos);
   };
 
   // Filtrer les tâches

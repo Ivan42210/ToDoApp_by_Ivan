@@ -1,30 +1,43 @@
+import React, { useRef, useState } from 'react';
 import { useTheme } from './hooks/useTheme';
 import { useTodos } from './hooks/useTodo';
+import { useKeyboardShortcuts } from './hooks/useKeyboardShortcuts';
 import Header from './components/Layout/Header';
 import StatsCards from './components/Stats/StatsCards';
 import CategorySelector from './components/Categories/CategorySelector';
 import TodoInput from './components/Todo/TodoInput';
-//import TodoFilters from './components/Todo/TodoFilters';
-import TodoList from './components/Todo/TodoList';
+import TodoFilters from './components/Todo/TodoFilters';
+import TodoListDragDrop from './components/Todo/TodoListDragDrop';
 import Button from './components/UI/Button';
+import KeyboardShortcutsHelp from './components/UI/KeyboardShortcutsHelp';
 
 export default function App() {
   const { darkMode, toggleTheme } = useTheme();
+  const searchInputRef = useRef(null);
+  const [showShortcutsHelp, setShowShortcutsHelp] = useState(false);
   const {
     todos,
+    allTodos,
     addTodo,
     toggleTodo,
     deleteTodo,
     updateTodo,
     clearCompleted,
-    //filter,
-    //setFilter,
+    reorderTodos,
+    filter,
+    setFilter,
     searchTerm,
     setSearchTerm,
     selectedCategory,
     setSelectedCategory,
     stats
   } = useTodos();
+
+  // Raccourcis clavier
+  useKeyboardShortcuts({
+    onSearch: () => searchInputRef.current?.focus(),
+    onShowHelp: () => setShowShortcutsHelp(true),
+  });
 
   return (
     <div className={`min-h-screen transition-colors duration-300 flex items-center justify-center ${darkMode
@@ -39,6 +52,7 @@ export default function App() {
           onToggleTheme={toggleTheme}
           searchTerm={searchTerm}
           onSearchChange={setSearchTerm}
+          searchRef={searchInputRef}
         />
 
         {/* Statistiques */}
@@ -54,19 +68,22 @@ export default function App() {
           darkMode={darkMode}
         />
 
-        {/* Filtres 
+        {/* Filtres */}
         <TodoFilters
           currentFilter={filter}
           onFilterChange={setFilter}
           darkMode={darkMode}
-        />*/}
+        />
 
-        {/* Liste des tâches */}
-        <TodoList
+        {/* Liste des tâches avec Drag & Drop */}
+        <TodoListDragDrop
           todos={todos}
           onToggle={toggleTodo}
           onDelete={deleteTodo}
           onUpdate={updateTodo}
+          onReorder={(newTodos) => {
+            reorderTodos(newTodos);
+          }}
           darkMode={darkMode}
         />
 

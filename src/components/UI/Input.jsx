@@ -1,4 +1,6 @@
-export default function Input({ 
+import React, { forwardRef } from 'react';
+
+const Input = forwardRef(({ 
   value, 
   onChange, 
   placeholder = '',
@@ -6,9 +8,10 @@ export default function Input({
   darkMode = true,
   className = '',
   ...props 
-}) {
+}, ref) => {
   return (
     <input
+      ref={ref}
       type={type}
       value={value}
       onChange={onChange}
@@ -23,4 +26,8 @@ export default function Input({
       {...props}
     />
   );
-}
+});
+
+Input.displayName = 'Input';
+
+export default Input;
