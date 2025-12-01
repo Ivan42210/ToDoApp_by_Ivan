@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { Plus, Calendar, Tag, AlertCircle } from 'lucide-react';
 import Button from '../UI/Button';
 import Input from '../UI/Input';
 import { CATEGORIES, PRIORITIES } from '../../utils/constants';
+import PropTypes from 'prop-types';
 
 export default function TodoInput({ onAdd, darkMode }) {
   const [text, setText] = useState('');
@@ -153,3 +154,8 @@ export default function TodoInput({ onAdd, darkMode }) {
     </div>
   );
 }
+
+TodoInput.propTypes = {
+  onAdd: PropTypes.func.isRequired,
+  darkMode: PropTypes.bool.isRequired
+};

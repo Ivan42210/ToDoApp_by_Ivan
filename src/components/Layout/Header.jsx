@@ -1,7 +1,8 @@
-import React, { useRef } from 'react';
+
 import { Search } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
 import Input from '../UI/Input';
+import PropTypes from 'prop-types';
 
 export default function Header({ darkMode, onToggleTheme, searchTerm, onSearchChange, searchRef }) {
   return (
@@ -35,3 +36,11 @@ export default function Header({ darkMode, onToggleTheme, searchTerm, onSearchCh
     </div>
   );
 }
+
+Header.propTypes = {
+  darkMode: PropTypes.bool.isRequired,
+  onToggleTheme: PropTypes.func.isRequired,
+    searchTerm: PropTypes.string.isRequired,
+    onSearchChange: PropTypes.func.isRequired,
+    searchRef: PropTypes.object.isRequired
+};  

@@ -1,4 +1,5 @@
 import { CATEGORIES } from '../../utils/constants';
+import PropTypes from 'prop-types';
 
 export default function CategorySelector({ selectedCategory, onSelect, darkMode }) {
   return (
@@ -41,3 +42,9 @@ export default function CategorySelector({ selectedCategory, onSelect, darkMode 
     </div>
   );
 }
+
+CategorySelector.propTypes = {
+  selectedCategory: PropTypes.string,
+  onSelect: PropTypes.func.isRequired,
+  darkMode: PropTypes.bool.isRequired
+};

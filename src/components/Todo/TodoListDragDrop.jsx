@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Filter } from 'lucide-react';
 import {
   DndContext,
@@ -15,6 +15,7 @@ import {
   verticalListSortingStrategy,
 } from '@dnd-kit/sortable';
 import TodoItemDragDrop from './TodoItemDragDrop';
+import PropTypes from 'prop-types';
 
 export default function TodoListDragDrop({
   todos,
@@ -85,3 +86,12 @@ export default function TodoListDragDrop({
     </DndContext>
   );
 }
+
+TodoListDragDrop.propTypes = {
+  todos: PropTypes.arrayOf(PropTypes.object).isRequired,
+  onToggle: PropTypes.func.isRequired,
+    onDelete: PropTypes.func.isRequired,
+    onUpdate: PropTypes.func.isRequired,
+    onReorder: PropTypes.func.isRequired,
+    darkMode: PropTypes.bool.isRequired
+};  

@@ -1,4 +1,5 @@
 import { CheckCircle, Circle, AlertCircle, Calendar } from 'lucide-react';
+import PropTypes from 'prop-types';
 
 export default function StatsCards({ stats, darkMode }) {
     const cards = [
@@ -66,3 +67,14 @@ export default function StatsCards({ stats, darkMode }) {
         </div>
     );
 }
+
+StatsCards.propTypes = {
+    stats: PropTypes.shape({
+        total: PropTypes.number.isRequired,
+        active: PropTypes.number.isRequired,
+        completed: PropTypes.number.isRequired,
+        today: PropTypes.number.isRequired,
+        overdue: PropTypes.number.isRequired
+    }).isRequired,
+    darkMode: PropTypes.bool.isRequired
+};

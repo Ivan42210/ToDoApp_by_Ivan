@@ -1,4 +1,5 @@
 import { CATEGORIES } from '../../utils/constants';
+import PropTypes from 'prop-types';
 
 export default function CategoryBadge({ categoryId, size = 'sm' }) {
     const category = CATEGORIES.find(cat => cat.id === categoryId);
@@ -17,3 +18,9 @@ export default function CategoryBadge({ categoryId, size = 'sm' }) {
         </span>
     );
 }
+
+
+CategoryBadge.propTypes = {
+    categoryId: PropTypes.string.isRequired,
+    size: PropTypes.oneOf(['sm', 'md'])
+};

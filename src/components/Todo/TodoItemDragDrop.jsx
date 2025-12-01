@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import { Check, Circle, Trash2, Edit2, Calendar, AlertCircle, GripVertical } from 'lucide-react';
@@ -8,6 +8,7 @@ import Button from '../UI/Button';
 import Input from '../UI/Input';
 import { getRelativeDate, isOverdue } from '../../utils/dateHelpers';
 import { PRIORITIES, CATEGORIES } from '../../utils/constants';
+import PropTypes from 'prop-types';
 
 export default function TodoItemDragDrop({ todo, onToggle, onDelete, onUpdate, darkMode }) {
   const [isEditing, setIsEditing] = useState(false);
@@ -272,3 +273,22 @@ export default function TodoItemDragDrop({ todo, onToggle, onDelete, onUpdate, d
     </>
   );
 }
+
+TodoItemDragDrop.propTypes = {
+  todo: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
+    completed: PropTypes.bool.isRequired,
+    category: PropTypes.oneOf(CATEGORIES.map(cat => cat.id)).isRequired,
+    dueDate: PropTypes.string,
+    priority: PropTypes.oneOf(Object.keys(PRIORITIES).map(key => key.toLowerCase())).isRequired
+  }).isRequired,
+  onToggle: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
+  onUpdate: PropTypes.func.isRequired,
+  darkMode: PropTypes.bool.isRequired
+};
+
+TodoItemDragDrop.defaultProps = {
+  darkMode: false
+};
